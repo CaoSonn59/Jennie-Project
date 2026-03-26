@@ -1,0 +1,184 @@
+.grid {
+  box-sizing: border-box;
+}
+
+// Container
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Item
+.item {
+  box-sizing: border-box;
+  margin: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+// Size classes (1-12)
+@for $i from 1 through 12 {
+  .size#{$i} {
+    flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
+    max-width: percentage($i / 12);
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: percentage($i / 12);
+  }
+}
+
+// Grow
+.grow {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+// Breakpoint sizes (xs, sm, md, lg, xl)
+@each $breakpoint in (xs, sm, md, lg, xl) {
+  @for $i from 1 through 12 {
+    .#{$breakpoint}#{$i} {
+      @if $breakpoint == xs {
+        flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
+        max-width: percentage($i / 12);
+        width: percentage($i / 12);
+      } @else if $breakpoint == sm {
+        @media (min-width: 600px) {
+          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
+          max-width: percentage($i / 12);
+          width: percentage($i / 12);
+        }
+      } @else if $breakpoint == md {
+        @media (min-width: 900px) {
+          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
+          max-width: percentage($i / 12);
+          width: percentage($i / 12);
+        }
+      } @else if $breakpoint == lg {
+        @media (min-width: 1200px) {
+          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
+          max-width: percentage($i / 12);
+          width: percentage($i / 12);
+        }
+      } @else if $breakpoint == xl {
+        @media (min-width: 1536px) {
+          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
+          max-width: percentage($i / 12);
+          width: percentage($i / 12);
+        }
+      }
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Decimal size classes for common values (2.67 = 8/3)
+.md2\.67 {
+  @media (min-width: 900px) {
+    flex-basis: calc(22.25% - var(--grid-gap, 0px));
+    max-width: 22.25%;
+    width: 22.25%;
+  }
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+// Offset classes
+@for $i from 0 through 11 {
+  .offset#{$i} {
+    margin-left: percentage($i / 12);
+  }
+}
+
+@each $breakpoint in (xs, sm, md, lg, xl) {
+  @for $i from 0 through 11 {
+    .offset#{$breakpoint}#{$i} {
+      @if $breakpoint == xs {
+        margin-left: percentage($i / 12);
+      } @else if $breakpoint == sm {
+        @media (min-width: 600px) {
+          margin-left: percentage($i / 12);
+        }
+      } @else if $breakpoint == md {
+        @media (min-width: 900px) {
+          margin-left: percentage($i / 12);
+        }
+      } @else if $breakpoint == lg {
+        @media (min-width: 1200px) {
+          margin-left: percentage($i / 12);
+        }
+      } @else if $breakpoint == xl {
+        @media (min-width: 1536px) {
+          margin-left: percentage($i / 12);
+        }
+      }
+    }
+  }
+}
+
+// Direction
+.directionRow {
+  flex-direction: row;
+}
+
+.directionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.directionColumn {
+  flex-direction: column;
+}
+
+.directionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+// Align Items
+.alignItemsFlexStart {
+  align-items: flex-start;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.alignItemsFlexEnd {
+  align-items: flex-end;
+}
+
+.alignItemsStretch {
+  align-items: stretch;
+}
+
+.alignItemsBaseline {
+  align-items: baseline;
+}
+
+// Justify Content
+.justifyContentFlexStart {
+  justify-content: flex-start;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+
+.justifyContentFlexEnd {
+  justify-content: flex-end;
+}
+
+.justifyContentSpaceBetween {
+  justify-content: space-between;
+}
+
+.justifyContentSpaceAround {
+  justify-content: space-around;
+}
+
+.justifyContentSpaceEvenly {
+  justify-content: space-evenly;
+}
+

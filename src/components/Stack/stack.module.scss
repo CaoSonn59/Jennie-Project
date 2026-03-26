@@ -1,0 +1,85 @@
+.stack {
+  display: flex;
+  box-sizing: border-box;
+}
+
+// Direction
+.directionRow {
+  flex-direction: row;
+}
+
+.directionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.directionColumn {
+  flex-direction: column;
+}
+
+.directionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+// Align Items
+.alignItemsFlexStart {
+  align-items: flex-start;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.alignItemsFlexEnd {
+  align-items: flex-end;
+}
+
+.alignItemsStretch {
+  align-items: stretch;
+}
+
+.alignItemsBaseline {
+  align-items: baseline;
+}
+
+// Justify Content
+.justifyContentFlexStart {
+  justify-content: flex-start;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+
+.justifyContentFlexEnd {
+  justify-content: flex-end;
+}
+
+.justifyContentSpaceBetween {
+  justify-content: space-between;
+}
+
+.justifyContentSpaceAround {
+  justify-content: space-around;
+}
+
+.justifyContentSpaceEvenly {
+  justify-content: space-evenly;
+}
+
+// Flex Wrap
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+// Use Flex Gap
+.useFlexGap {
+  // Flexbox gap is handled via inline style
+}
+
+// Divider
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

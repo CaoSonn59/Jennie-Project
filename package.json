@@ -1,0 +1,63 @@
+{
+  "name": "@kristinet/ui",
+  "version": "1.0.0",
+  "description": "KristineT - A modern React component library",
+  "files": [
+    "src/components",
+    "README.md"
+  ],
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "library",
+    "kristinet"
+  ],
+  "author": "KimThaoThai",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kristinet/ui-library"
+  },
+  "private": false,
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.8.0",
+    "react-scripts": "5.0.1",
+    "lucide-react": "^0.263.1",
+    "motion": "^12.0.0",
+    "@radix-ui/react-slider": "1.3.6"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:lib": "echo 'Library build process - components are ready to use'",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

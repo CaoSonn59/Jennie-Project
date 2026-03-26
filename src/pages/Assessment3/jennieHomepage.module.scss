@@ -1,0 +1,844 @@
+/* ----- JennieHome Page Styles ----- */
+
+.pageContainer {
+  background-color: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background-color: #101b14 !important; // Dark green
+  color: #fff !important;
+  z-index: 1000;
+
+  :global(.navLink) {
+    color: #fff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  :global(.title) {
+    color: #fff !important;
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+  }
+}
+.headerLogo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  min-height: 600px;
+  margin-top: 64px; // Account for fixed header
+  background-color: #000;
+}
+
+.heroImageContainer {
+  position: relative; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden; 
+}
+
+.heroImageWrapper {
+  width: 100%;
+  height: 100%;
+  will-change: transform; 
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.pointerBall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 2px solid rgba(255, 3, 3, 0.8);
+  border-radius: 50%;
+  // Use backdrop-filter to create a magnifying glass effect
+  backdrop-filter: blur(10px) brightness(1.5);
+  pointer-events: none; // Cho phép click xuyên qua
+  will-change: transform;
+  z-index: 100; /* Ensure it appears on top */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  // Ensure the ball is always displayed
+  display: block;
+  // Add mix-blend-mode to make it stand out more
+  //  mix-blend-mode: difference;
+}
+
+/* Music Player Bar */
+.musicBar {
+  background-color: #cc0000;
+  padding: 20px 40px;
+  width: 100%;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.musicBarContent {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+.albumContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @media (max-width: 500px) {
+    // Keep horizontal row on small screens
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.albumArt {
+  img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @media (max-width: 500px) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+
+.albumTitle {
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 1px;
+
+  @media (max-width: 500px) {
+    font-size: 1rem !important;
+    text-align: left;
+    margin-bottom: 0px !important;
+  }
+}
+
+.albumSubtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @media (max-width: 500px) {
+    margin-top: 0px !important;
+  }
+}
+
+.playerControls {
+  flex: 1;
+  max-width: 400px;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+}
+
+.playButton {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Play button should show pause icon (two vertical bars) when playing
+.playButton.playing {
+  svg {
+    path {
+      d: path("M6 4h4v16H6V4zm8 0h4v16h-4V4z");
+    }
+  }
+}
+
+.timeText {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 45px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 35%;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* Volume Control */
+.volumeControl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+
+  @media (max-width: 500px) {
+    min-width: 100px;
+  }
+}
+
+.volumeIcon {
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.volumeSlider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  touch-action: none;
+  width: 80px;
+  height: 20px;
+}
+
+.sliderTrack {
+  background-color: rgba(255, 255, 255, 0.3);
+  position: relative;
+  flex-grow: 1;
+  border-radius: 9999px;
+  height: 4px;
+}
+
+.sliderRange {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 9999px;
+  height: 100%;
+}
+
+.sliderThumb {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.volumeValue {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 35px;
+  text-align: right;
+}
+
+/* Sections */
+.section {
+  padding: 80px 40px;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+/* About Section */
+.aboutSection {
+  background-color: #101b14; // Dark green
+  color: #fff;
+  padding: 0 150px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 1133px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 500px) {
+    padding: 80px 20px 0px 20px;
+    grid-gap: 0;
+  }
+
+  // Override grid-gap for the Grid container on small screens
+  .aboutGridContainer {
+    @media (max-width: 500px) {
+      --grid-gap: 0 !important;
+      gap: 0 !important;
+
+      // Override all Grid items inside
+      :global(.MuiGrid-item) {
+        padding: 0 !important;
+      }
+    }
+  }
+
+  // Fallback: Directly override Grid component if className doesn't work
+  :global(.MuiGrid-container) {
+    @media (max-width: 500px) {
+      --grid-gap: 0 !important;
+      gap: 0 !important;
+    }
+  }
+}
+
+.aboutMarquee {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 400%;
+  display: flex;
+  font-size: clamp(3rem, 12vw, 10rem);
+  font-weight: 800;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+  opacity: 0.15;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  will-change: transform;
+  backface-visibility: hidden;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  contain: paint;
+
+  @media (max-width: 900px) {
+    top: 34%;
+  }
+  @media (max-width: 500px) {
+    top: 55%;
+  }
+}
+
+.aboutMarqueeSecondary {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 400%;
+  display: flex;
+  font-size: clamp(2rem, 8vw, 7rem);
+  font-weight: 700;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+  opacity: 0.15;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  will-change: transform;
+  backface-visibility: hidden;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  contain: paint;
+
+  @media (max-width: 900px) {
+    top: 41%;
+  }
+  @media (max-width: 500px) {
+    top: 60%;
+  }
+}
+
+.aboutMarquee > span,
+.aboutMarqueeSecondary > span {
+  margin-right: 2rem;
+}
+
+.aboutMarqueeDown {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+}
+
+.aboutMarqueeUp {
+  filter: drop-shadow(0 4px 12px rgba(204, 0, 0, 0.35));
+}
+
+.aboutTags {
+  color: #cc0000 !important;
+  font-size: 0.875rem !important;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.aboutTitle {
+  color: #fff !important;
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 2rem !important;
+    padding: 0 40px;
+  }
+}
+
+.aboutText {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.125rem !important;
+  line-height: 1.8;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.meetButton {
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+  padding: 12px 32px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.aboutImage {
+  position: relative;
+  z-index: 2;
+  img {
+    width: auto;
+    height: 50%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+/* Discography Section */
+.discographySection {
+  background-color: #cc0000;
+  color: #fff;
+}
+
+.discographyContainer {
+  position: relative;
+  width: 100%;
+}
+
+.discographyMaskLeft,
+.discographyMaskRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px; /* Width of the blurred area */
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: 2;
+}
+
+.discographyMaskLeft {
+  left: 0;
+  background: linear-gradient(to right, #cc0000, transparent);
+}
+
+.discographyMaskRight {
+  right: 0;
+  background: linear-gradient(to left, #cc0000, transparent);
+}
+
+.discographyRow {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  padding: 8px 20px; 
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.sectionTitle {
+  color: #fff !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.titleUnderline {
+  width: 60px;
+  height: 2px;
+  background-color: #fff;
+  margin: 0 auto 40px;
+}
+
+.albumCard {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  min-width: 400px;
+  max-width: 440px;
+  scroll-snap-align: start;
+  flex-shrink: 0; 
+
+  @media (max-width: 900px) {
+    min-width: 240px;
+    max-width: 280px;
+  }
+}
+
+.albumImageContainer {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.albumImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.albumInfo {
+  text-align: left;
+}
+
+.albumName {
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+}
+
+.albumTime {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.875rem !important;
+}
+
+/* Tour Section */
+.tourSection {
+  background-color: #101b14; // Dark green
+  color: #fff;
+}
+
+.tourTitle {
+  color: #cc0000 !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.tourList {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tourItem {
+  width: 100%;
+}
+
+.tourRow {
+  padding: 20px 0;
+}
+
+.tourPlace {
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tourLocation {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 1rem !important;
+}
+
+.tourDate {
+  color: #cc0000 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  white-space: nowrap;
+}
+
+.tourDivider {
+  width: 100%;
+  height: 1px;
+  background-color: #cc0000;
+  margin: 0;
+}
+
+/* Gallery Section */
+.gallerySection {
+  background-color: #101b14; // Dark green
+  padding: 80px 40px;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+.galleryWrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.galleryCollageGrid {
+  width: 100%;
+}
+
+.galleryColumnFull,
+.galleryStackItem {
+  border: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0d0f0d;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.galleryColumnFull {
+  height: 100%;
+  min-height: 420px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.galleryColumnStack {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+  gap: 20px;
+}
+
+.galleryStackItem {
+  flex: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.galleryStackItemLarge {
+  flex: 2;
+}
+
+.galleryStackItemSmall {
+  flex: 1;
+}
+
+/* Footer */
+.footer {
+  background-color: #101b14; // Dark green
+  padding: 60px 40px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 40px 20px 30px;
+  }
+}
+
+.footerLogoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.footerLogoImage {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footerNav {
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    margin: 20px 0;
+  }
+}
+
+.footerLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.fanclubButton {
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.socialIcons {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialIcon {
+  color: #fff;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.floatingMenuButton {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(224, 224, 224, 0.9);
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(16, 27, 20, 0.95);
+    color: #fff;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.floatingMenuIcon {
+  display: inline-flex;
+}
+
+.floatingOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.floatingOverlayActive {
+  opacity: 1;
+  visibility: visible;
+}
