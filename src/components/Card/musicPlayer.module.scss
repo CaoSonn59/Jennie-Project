@@ -1,0 +1,257 @@
+.musicPlayerContainer {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #9b59b6 100%);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    min-height: 350px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    min-height: 300px;
+    border-radius: 12px;
+  }
+}
+
+.musicPlayerCard {
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+}
+
+.topSection {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.albumArt {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.songInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #fff;
+  flex: 1;
+  text-align: left;
+
+  @media (max-width: 480px) {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.artist {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
+}
+
+.title {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+  }
+}
+
+.album {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+
+  @media (max-width: 480px) {
+    font-size: 11px;
+  }
+}
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.progressTrack {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+}
+
+.progressHandle {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: 480px) {
+    gap: 20px;
+  }
+}
+
+.controlBtn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+  touch-action: manipulation;
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    @media (max-width: 480px) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.volumeControl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+
+  svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
+
+.volumeTrack {
+  flex: 1;
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.volumeFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+}
+
+.volumeHandle {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+

@@ -1,0 +1,519 @@
+// AppBar Component Styles
+.appBar {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding: 0 16px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+              0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+              0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  z-index: 1100;
+  width: 100%;
+}
+
+// Position variants
+.positionFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.positionAbsolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.positionRelative {
+  position: relative;
+}
+
+.positionSticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+// Color variants
+.colorDefault {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.colorPrimary {
+  background-color: #1976d2;
+  color: #ffffff;
+}
+
+.colorSecondary {
+  background-color: #dc004e;
+  color: #ffffff;
+}
+
+.colorTransparent {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+// Variant styles
+.variantStandard {
+  min-height: 64px;
+}
+
+.variantDense {
+  min-height: 48px;
+}
+
+.variantProminent {
+  min-height: 128px;
+}
+
+// Container
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+// Center Logo Layout
+.centerLogoLayout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+// Left section
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 0 0 auto;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  min-width: 40px;
+  height: 40px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.0075em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+// Center Logo Layout Styles
+.leftMenuItems {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  justify-content: end;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.rightMenuItems {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  justify-content: start;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.centerLogoSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    // width: 5rem;
+  }
+}
+
+// Mobile: Hamburger + Logo container
+.mobileLogoContainer {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    gap: 12px; // Gap between hamburger and logo
+  }
+}
+
+// Desktop: Logo only container
+.desktopLogoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  min-width: 40px;
+  height: 40px;
+  flex-shrink: 0; // Prevent button from shrinking
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// Navigation links (desktop)
+.navLinks {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  justify-content: center;
+  margin: 0 16px;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.navLink {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02857em;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+// Right section
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+// Search container
+.searchContainer {
+  display: none;
+  position: relative;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 8px 16px;
+  min-width: 200px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+
+  @media (min-width: 600px) {
+    display: flex;
+  }
+}
+
+.searchContainer.primary {
+  background-color: rgba(255, 255, 255, 0.25);
+  flex: 1;
+  max-width: 600px;
+  margin: 0 16px;
+  display: flex !important;
+}
+
+.searchIcon {
+  color: #ffffff;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 0.875rem;
+  outline: none;
+  width: 100%;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// Action buttons
+.actionButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  min-width: 40px;
+  height: 40px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: #f44336;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// User profile
+.userButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  margin-left: 8px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.userIcon {
+  color: #ffffff;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+// Drawer menu (mobile)
+.drawerBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1200;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 280px;
+  max-width: 80vw;
+  background-color: #1e1e1e;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 1300;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease-out;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  min-height: 64px;
+}
+
+.drawerTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.drawerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  min-width: 40px;
+  height: 40px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.drawerMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.drawerMenuItem {
+  padding: 16px 24px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02857em;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .navLinks {
+    display: none;
+  }
+
+  .searchContainer {
+    display: none;
+  }
+
+  .searchContainer.primary {
+    display: flex;
+    margin: 0 8px;
+    min-width: auto;
+  }
+}
+
