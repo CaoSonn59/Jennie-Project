@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .grid {
   box-sizing: border-box;
 }
@@ -21,11 +23,11 @@
 // Size classes (1-12)
 @for $i from 1 through 12 {
   .size#{$i} {
-    flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
-    max-width: percentage($i / 12);
+    flex-basis: calc(#{math.percentage(math.div($i, 12))} - var(--grid-gap, 0px));
+    max-width: math.percentage(math.div($i, 12));
     flex-grow: 0;
     flex-shrink: 0;
-    width: percentage($i / 12);
+    width: math.percentage(math.div($i, 12));
   }
 }
 
@@ -41,32 +43,32 @@
   @for $i from 1 through 12 {
     .#{$breakpoint}#{$i} {
       @if $breakpoint == xs {
-        flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
-        max-width: percentage($i / 12);
-        width: percentage($i / 12);
+        flex-basis: calc(#{math.percentage(math.div($i, 12))} - var(--grid-gap, 0px));
+        max-width: math.percentage(math.div($i, 12));
+        width: math.percentage(math.div($i, 12));
       } @else if $breakpoint == sm {
         @media (min-width: 600px) {
-          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
-          max-width: percentage($i / 12);
-          width: percentage($i / 12);
+          flex-basis: calc(#{math.percentage(math.div($i, 12))} - var(--grid-gap, 0px));
+          max-width: math.percentage(math.div($i, 12));
+          width: math.percentage(math.div($i, 12));
         }
       } @else if $breakpoint == md {
         @media (min-width: 900px) {
-          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
-          max-width: percentage($i / 12);
-          width: percentage($i / 12);
+          flex-basis: calc(#{math.percentage(math.div($i, 12))} - var(--grid-gap, 0px));
+          max-width: math.percentage(math.div($i, 12));
+          width: math.percentage(math.div($i, 12));
         }
       } @else if $breakpoint == lg {
         @media (min-width: 1200px) {
-          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
-          max-width: percentage($i / 12);
-          width: percentage($i / 12);
+          flex-basis: calc(#{math.percentage(math.div($i, 12))} - var(--grid-gap, 0px));
+          max-width: math.percentage(math.div($i, 12));
+          width: math.percentage(math.div($i, 12));
         }
       } @else if $breakpoint == xl {
         @media (min-width: 1536px) {
-          flex-basis: calc(#{percentage($i / 12)} - var(--grid-gap, 0px));
-          max-width: percentage($i / 12);
-          width: percentage($i / 12);
+          flex-basis: calc(#{math.percentage(math.div($i, 12))} - var(--grid-gap, 0px));
+          max-width: math.percentage(math.div($i, 12));
+          width: math.percentage(math.div($i, 12));
         }
       }
       flex-grow: 0;
@@ -89,7 +91,7 @@
 // Offset classes
 @for $i from 0 through 11 {
   .offset#{$i} {
-    margin-left: percentage($i / 12);
+    margin-left: math.percentage(math.div($i, 12));
   }
 }
 
@@ -97,22 +99,22 @@
   @for $i from 0 through 11 {
     .offset#{$breakpoint}#{$i} {
       @if $breakpoint == xs {
-        margin-left: percentage($i / 12);
+        margin-left: math.percentage(math.div($i, 12));
       } @else if $breakpoint == sm {
         @media (min-width: 600px) {
-          margin-left: percentage($i / 12);
+          margin-left: math.percentage(math.div($i, 12));
         }
       } @else if $breakpoint == md {
         @media (min-width: 900px) {
-          margin-left: percentage($i / 12);
+          margin-left: math.percentage(math.div($i, 12));
         }
       } @else if $breakpoint == lg {
         @media (min-width: 1200px) {
-          margin-left: percentage($i / 12);
+          margin-left: math.percentage(math.div($i, 12));
         }
       } @else if $breakpoint == xl {
         @media (min-width: 1536px) {
-          margin-left: percentage($i / 12);
+          margin-left: math.percentage(math.div($i, 12));
         }
       }
     }
@@ -181,4 +183,3 @@
 .justifyContentSpaceEvenly {
   justify-content: space-evenly;
 }
-
